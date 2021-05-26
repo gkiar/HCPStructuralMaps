@@ -24,14 +24,14 @@ def main():
 
     # Resample T1w image
     t1w_2name = op.join(odir, op.basename(results.t1w_im))
-    t1w_2 = resample_to_img(ref,
-                            nib.load(results.t1w_im))
+    t1w_2 = resample_to_img(nib.load(results.t1w_im),
+                            ref)
     nib.save(t1w_2, t1w_2name)
 
     # Resample parcellation
     gla_2name = op.join(odir, op.basename(results.gla_im))
-    gla_2 = resample_to_img(ref,
-                            nib.load(results.gla_im),
+    gla_2 = resample_to_img(nib.load(results.gla_im),
+                            ref,
                             interpolation="nearest")
     nib.save(gla_2, gla_2name)
 
