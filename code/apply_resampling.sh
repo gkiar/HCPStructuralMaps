@@ -12,9 +12,11 @@ for sub in `ls $dset`
 do
   for ses in `ls $dset/$sub`
   do
+    echo $sub-$ses
+
     d=${1}/${sub}/${ses}/dwi/${sub}_${ses}_${tmpl_dwi}
     t=${1}/${sub}/${ses}/anat/${sub}_${ses}_${tmpl_t1w}
     g=${1}/${sub}/${ses}/anat/${sub}_${ses}_${tmpl_gla}
-    echo python resample_structure.py $d $t $g
+    python resample_structure.py $d $t $g
   done
 done
